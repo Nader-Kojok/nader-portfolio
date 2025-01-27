@@ -136,7 +136,7 @@ export default function Home() {
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Schedule a Call</h3>
               <a
-                href="https://calendly.com/your-username"
+                href="https://calendly.com/naderkojok/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300"

@@ -71,7 +71,7 @@ export default function Hero() {
               </svg>
             </a>
             <a
-              href="https://calendly.com/your-username"
+              href="https://calendly.com/naderkojok/30min"
               target="_blank"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-colors duration-300"
             >
