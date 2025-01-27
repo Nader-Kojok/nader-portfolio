@@ -13,35 +13,69 @@ interface Project {
   link: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "E-Commerce Dashboard",
-    description: "A modern dashboard interface for managing online store operations with real-time analytics and inventory management.",
-    image: "/projects/dashboard.jpg",
-    tools: ["Figma", "React", "Tailwind CSS", "Chart.js"],
-    link: "#"
-  },
-  {
-    id: 2,
-    title: "Health & Wellness App",
-    description: "Mobile application design for tracking personal health metrics, meditation sessions, and workout routines.",
-    image: "/projects/health-app.jpg",
-    tools: ["Adobe XD", "Sketch", "Principle"],
-    link: "#"
-  },
-  {
-    id: 3,
-    title: "Financial Platform Redesign",
-    description: "Complete UX/UI overhaul of a financial services platform, focusing on simplifying complex transactions.",
-    image: "/projects/finance.jpg",
-    tools: ["Figma", "Protopie", "Adobe Creative Suite"],
-    link: "#"
-  },
-];
+interface ProjectTranslations {
+  en: Project[];
+  fr: Project[];
+}
+
+const projects: ProjectTranslations = {
+  en: [
+    {
+      id: 1,
+      title: "E-Commerce Dashboard",
+      description: "A modern dashboard interface for managing online store operations with real-time analytics and inventory management.",
+      image: "/projects/dashboard.jpg",
+      tools: ["Figma", "React", "Tailwind CSS", "Chart.js"],
+      link: "#"
+    },
+    {
+      id: 2,
+      title: "Health & Wellness App",
+      description: "Mobile application design for tracking personal health metrics, meditation sessions, and workout routines.",
+      image: "/projects/health-app.jpg",
+      tools: ["Adobe XD", "Sketch", "Principle"],
+      link: "#"
+    },
+    {
+      id: 3,
+      title: "Financial Platform Redesign",
+      description: "Complete UX/UI overhaul of a financial services platform, focusing on simplifying complex transactions.",
+      image: "/projects/finance.jpg",
+      tools: ["Figma", "Protopie", "Adobe Creative Suite"],
+      link: "#"
+    },
+  ],
+  fr: [
+    {
+      id: 1,
+      title: "Tableau de Bord E-Commerce",
+      description: "Une interface de tableau de bord moderne pour gérer les opérations de boutique en ligne avec des analyses en temps réel et la gestion des stocks.",
+      image: "/projects/dashboard.jpg",
+      tools: ["Figma", "React", "Tailwind CSS", "Chart.js"],
+      link: "#"
+    },
+    {
+      id: 2,
+      title: "Application Santé & Bien-être",
+      description: "Conception d'une application mobile pour suivre les métriques de santé personnelle, les séances de méditation et les routines d'exercice.",
+      image: "/projects/health-app.jpg",
+      tools: ["Adobe XD", "Sketch", "Principle"],
+      link: "#"
+    },
+    {
+      id: 3,
+      title: "Refonte de Plateforme Financière",
+      description: "Refonte complète de l'expérience utilisateur d'une plateforme de services financiers, axée sur la simplification des transactions complexes.",
+      image: "/projects/finance.jpg",
+      tools: ["Figma", "Protopie", "Adobe Creative Suite"],
+      link: "#"
+    },
+  ]
+};
+
 
 export default function Projects() {
-  const { translations } = useLanguage();
+  const { language, translations } = useLanguage();
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
@@ -60,13 +94,24 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects[language].map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 1, 
+                delay: index * 0.1,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800"
             >
               <div className="relative h-48 w-full">
                 <Image

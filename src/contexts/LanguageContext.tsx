@@ -141,6 +141,12 @@ const translations: Record<Language, Translations> = {
             company: 'Tech Startup',
             period: '2018 - 2020',
             description: 'Developed responsive web applications using modern technologies.'
+          },
+          {
+            role: 'UI/UX Designer',
+            company: 'Creative Agency',
+            period: '2016 - 2018',
+            description: 'Created user-centered designs and conducted usability testing for various digital products.'
           }
         ]
       },
@@ -243,6 +249,12 @@ const translations: Record<Language, Translations> = {
             company: 'Startup Tech',
             period: '2018 - 2020',
             description: 'Développement d\'applications web responsives utilisant des technologies modernes.'
+          },
+          {
+            role: 'Designer UX/UI',
+            company: 'Agence Créative',
+            period: '2016 - 2018',
+            description: 'Création de designs centrés sur l\'utilisateur et réalisation de tests d\'utilisabilité pour divers produits numériques.'
           }
         ]
       },

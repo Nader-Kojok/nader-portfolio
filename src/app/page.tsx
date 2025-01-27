@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
 import Hero from "@/components/Hero";
 import DesignProcess from "@/components/DesignProcess";
 
 export default function Home() {
+  const { translations } = useLanguage();
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Hero />
@@ -25,21 +27,32 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Client Testimonials
+              {translations?.testimonials?.title}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              What clients say about working together
+              {translations?.testimonials?.description}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md transform transition-all duration-700 ease-in-out hover:shadow-xl hover:-translate-y-2 hover:scale-[1.03] hover:from-blue-100/90 hover:to-indigo-100/90 dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
               >
               <div className="mb-6">
                 <svg className="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -47,28 +60,39 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                &quot;Working with this team was an absolute pleasure. They understood our vision perfectly and delivered beyond our expectations.&quot;
+                &quot;{translations?.testimonials?.items[0]?.quote}&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
                   <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                    <span className="text-blue-600 dark:text-blue-400 font-semibold">SB</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-semibold">{translations?.testimonials?.items[0]?.author[0]}{translations?.testimonials?.items[0]?.author.split(' ')[1]?.[0]}</span>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Sarah Brown</h4>
-                  <p className="text-gray-500 dark:text-gray-400">CEO, TechStart</p>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{translations?.testimonials?.items[0]?.author}</h4>
+                  <p className="text-gray-500 dark:text-gray-400">{translations?.testimonials?.items[0]?.role}, {translations?.testimonials?.items[0]?.company}</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Testimonial 2 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md transform transition-all duration-700 ease-in-out hover:shadow-xl hover:-translate-y-2 hover:scale-[1.03] hover:from-blue-100/90 hover:to-indigo-100/90 dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0.1,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
               >
               <div className="mb-6">
                 <svg className="w-8 h-8 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
@@ -76,28 +100,39 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                &quot;The attention to detail and creative solutions provided were exceptional. A true professional who delivers quality work.&quot;
+                &quot;{translations?.testimonials?.items[1]?.quote}&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
                   <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                    <span className="text-purple-600 dark:text-purple-400 font-semibold">MJ</span>
+                    <span className="text-purple-600 dark:text-purple-400 font-semibold">{translations?.testimonials?.items[1]?.author[0]}{translations?.testimonials?.items[1]?.author.split(' ')[1]?.[0]}</span>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Michael Johnson</h4>
-                  <p className="text-gray-500 dark:text-gray-400">Product Manager, InnovateCo</p>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{translations?.testimonials?.items[1]?.author}</h4>
+                  <p className="text-gray-500 dark:text-gray-400">{translations?.testimonials?.items[1]?.role}, {translations?.testimonials?.items[1]?.company}</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Testimonial 3 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md transform transition-all duration-700 ease-in-out hover:shadow-xl hover:-translate-y-2 hover:scale-[1.03] hover:from-blue-100/90 hover:to-indigo-100/90 dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
               >
               <div className="mb-6">
                 <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
@@ -105,17 +140,17 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                &quot;Their innovative approach and technical expertise helped us achieve our goals faster than expected. Highly recommended!&quot;
+                &quot;{translations?.testimonials?.items[2]?.quote}&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
                   <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <span className="text-green-600 dark:text-green-400 font-semibold">AL</span>
+                    <span className="text-green-600 dark:text-green-400 font-semibold">{translations?.testimonials?.items[2]?.author[0]}{translations?.testimonials?.items[2]?.author.split(' ')[1]?.[0]}</span>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Amanda Lee</h4>
-                  <p className="text-gray-500 dark:text-gray-400">Director, DesignHub</p>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{translations?.testimonials?.items[2]?.author}</h4>
+                  <p className="text-gray-500 dark:text-gray-400">{translations?.testimonials?.items[2]?.role}, {translations?.testimonials?.items[2]?.company}</p>
                 </div>
               </div>
             </motion.div>
@@ -128,10 +163,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Schedule Call Button */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
               className="space-y-4"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Schedule a Call</h3>
@@ -147,10 +193,21 @@ export default function Home() {
 
             {/* Quick Links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0.1,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
               className="space-y-4"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Quick Links</h3>
@@ -175,10 +232,21 @@ export default function Home() {
 
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 1, 
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileHover={{ 
+                y: -8,
+                scale: 1.03,
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ scale: 0.98 }}
               className="space-y-4"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Contact</h3>
