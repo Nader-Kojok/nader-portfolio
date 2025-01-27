@@ -122,6 +122,29 @@ export default function Hero() {
             className="w-full h-full opacity-20 dark:opacity-10"
           />
         </motion.div>
+
+        {/* Figma Logo */}
+        <motion.div
+          className="absolute top-[-70px] left-1/2 transform -translate-x-1/2 w-16 h-16 md:w-24 md:h-24"
+          animate={{
+            y: [0, 12, 0],
+            rotate: [0, 6, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="/figma.svg"
+            alt="Floating figma logo"
+            width={96}
+            height={96}
+            className="w-full h-full opacity-75 dark:opacity-40"
+          />
+        </motion.div>
       </div>
     </section>
   );
