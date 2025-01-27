@@ -171,12 +171,6 @@ export default function Home() {
                 delay: 0,
                 ease: [0.25, 0.1, 0.25, 0.5]
               }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.03,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
-              }}
               whileTap={{ scale: 0.98 }}
               className="space-y-4"
             >
@@ -200,12 +194,6 @@ export default function Home() {
                 duration: 1, 
                 delay: 0.1,
                 ease: [0.25, 0.1, 0.25, 0.5]
-              }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.03,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
               }}
               whileTap={{ scale: 0.98 }}
               className="space-y-4"
@@ -240,12 +228,6 @@ export default function Home() {
                 delay: 0.2,
                 ease: [0.25, 0.1, 0.25, 0.5]
               }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.03,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
-              }}
               whileTap={{ scale: 0.98 }}
               className="space-y-4"
             >
@@ -253,11 +235,11 @@ export default function Home() {
               <ul className="space-y-2">
                 <li className="text-gray-600 dark:text-gray-300">
                   <a href="mailto:hello@example.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    hello@example.com
+                    nader.k@agencearcane.com
                   </a>
                 </li>
                 <li className="text-gray-600 dark:text-gray-300">
-                  San Francisco, CA
+                  Dakar, Sénégal
                 </li>
               </ul>
             </motion.div>

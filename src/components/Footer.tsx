@@ -51,7 +51,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-gray-600 dark:text-gray-300 text-sm">
-                San Francisco, CA
+                Dakar, Sénégal
               </li>
             </ul>
           </motion.div>
