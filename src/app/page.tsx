@@ -247,7 +247,7 @@ export default function Home() {
             className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"
           >
             <p className="text-center text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} Nader Kojok. All rights reserved.
             </p>
           </motion.div>
         </div>

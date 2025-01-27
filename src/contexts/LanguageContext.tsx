@@ -88,8 +88,8 @@ interface Translations {
 const translations: Record<Language, Translations> = {
   en: {
     hero: {
-      title: 'Crafting Digital Experiences with Purpose',
-      description: "Hi, I'm a UX/UI designer and developer passionate about creating intuitive and engaging digital experiences that make a difference.",
+      title: 'Hi, I’m Nader Kojok, UX/UI Designer & Front-end Developer',
+      description: "I’m passionate about creating intuitive and engaging digital experiences. I help businesses transform their ideas into memorable and impactful digital products.",
       viewWork: 'View My Work',
       getInTouch: 'Get in Touch',
     },
@@ -190,8 +190,8 @@ const translations: Record<Language, Translations> = {
   },
   fr: {
     hero: {
-      title: 'Créer des Expériences Numériques avec un Objectif',
-      description: "Bonjour, je suis un designer et développeur UX/UI passionné par la création d'expériences numériques intuitives et engageantes qui font la différence.",
+      title: 'Bonjour, je suis Nader Kojok, Designer UX/UI et Développeur',
+      description: "Passionné par la création d'expériences numériques intuitives et engageantes, j'aide les entreprises à transformer leurs idées en produits mémorables qui font la différence.",
       viewWork: 'Voir Mes Projets',
       getInTouch: 'Me Contacter',
     },
