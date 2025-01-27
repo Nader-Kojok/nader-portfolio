@@ -13,29 +13,26 @@ export default function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
-    };
+    const onMouseMove = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
 
-    const updateCursorType = () => {
       const hoveredElement = document.elementFromPoint(
-        cursorX.get() + 16,
-        cursorY.get() + 16
+        e.clientX + 16,
+        e.clientY + 16
       );
       
       const isClickable = hoveredElement?.closest('a, button, [role="button"]');
       setIsPointer(!!isClickable);
     };
 
-    window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mousemove', updateCursorType);
+    window.addEventListener('mousemove', onMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      window.removeEventListener('mousemove', updateCursorType);
+      window.removeEventListener('mousemove', onMouseMove);
     };
-  }, []);
+  }, [cursorX, cursorY]);
+
 
   return (
     <>

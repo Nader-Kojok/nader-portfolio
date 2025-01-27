@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../contexts/LanguageContext";
 import Link from "next/link";
-import CustomCursor from "./CustomCursor";
 
 export default function Footer() {
+  const { translations } = useLanguage();
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-0 transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -16,7 +17,7 @@ export default function Footer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{translations?.footer?.quickLinks?.title || "Quick Links"}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useLanguage } from "../contexts/LanguageContext";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -69,8 +69,12 @@ export default function Projects() {
               className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:-translate-y-1"
             >
               <div className="relative h-48 w-full">
-                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" />
-                {/* Add actual images later */}
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">

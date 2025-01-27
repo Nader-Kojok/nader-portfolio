@@ -76,6 +76,12 @@ interface Translations {
   footer: {
     getInTouch: string;
     rights: string;
+    quickLinks: {
+      title: string;
+      about: string;
+      projects: string;
+      contact: string;
+    };
   };
 }
 
@@ -174,6 +180,12 @@ const translations: Record<Language, Translations> = {
     footer: {
       getInTouch: 'Get in Touch',
       rights: 'All rights reserved.',
+      quickLinks: {
+        title: 'Quick Links',
+        about: 'About',
+        projects: 'Projects',
+        contact: 'Contact'
+      }
     },
   },
   fr: {
@@ -270,6 +282,12 @@ const translations: Record<Language, Translations> = {
     footer: {
       getInTouch: 'Me Contacter',
       rights: 'Tous droits réservés.',
+      quickLinks: {
+        title: 'Liens Rapides',
+        about: 'À Propos',
+        projects: 'Projets',
+        contact: 'Contact'
+      }
     },
   },
 };

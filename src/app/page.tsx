@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
 import Hero from "@/components/Hero";
@@ -48,7 +47,7 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                "Working with this team was an absolute pleasure. They understood our vision perfectly and delivered beyond our expectations."
+                &quot;Working with this team was an absolute pleasure. They understood our vision perfectly and delivered beyond our expectations.&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
@@ -77,7 +76,7 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                "The attention to detail and creative solutions provided were exceptional. A true professional who delivers quality work."
+                &quot;The attention to detail and creative solutions provided were exceptional. A true professional who delivers quality work.&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
@@ -106,7 +105,7 @@ export default function Home() {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                "Their innovative approach and technical expertise helped us achieve our goals faster than expected. Highly recommended!"
+                &quot;Their innovative approach and technical expertise helped us achieve our goals faster than expected. Highly recommended!&quot;
               </p>
               <div className="flex items-center">
                 <div className="flex-shrink-0 mr-3">
