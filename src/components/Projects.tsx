@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-40 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,61 +58,42 @@ export default function Projects() {
                 delay: index * 0.1,
                 ease: [0.25, 0.1, 0.25, 0.5]
               }}
-              whileHover={{ 
-                y: -8,
-                scale: 1.03,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
-              }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="group relative overflow-hidden rounded-3xl bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <div className="relative h-48 w-full">
+              <a
+                href={`/projects/${project._id}`}
+                className="block h-[400px] relative overflow-hidden"
+              >
                 <Image
                   src={urlForImage(project.image).url()}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-white/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 backdrop-blur-sm" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-200 line-clamp-2 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
-                <a
-                  href={`/projects/${project._id}`}
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline cursor-none"
-                >
-                  {translations.projects.viewProject}
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>

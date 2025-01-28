@@ -16,6 +16,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/types": "^3.71.2",
     "@sanity/vision": "^3.71.2",
+    "colorthief": "^2.6.0",
     "framer-motion": "^12.0.5",
     "lightgallery": "^2.8.2",
     "next": "^15.1.6",
