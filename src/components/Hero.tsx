@@ -3,9 +3,31 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useEffect, useState } from 'react';
+import { getHeroContent } from '../sanity/lib/client';
 
 export default function Hero() {
-  const { translations } = useLanguage();
+  const { language } = useLanguage();
+  const [heroContent, setHeroContent] = useState({
+    title_en: '',
+    description_en: '',
+    viewWork_en: '',
+    getInTouch_en: '',
+    title_fr: '',
+    description_fr: '',
+    viewWork_fr: '',
+    getInTouch_fr: ''
+  });
+
+  useEffect(() => {
+    const fetchHeroContent = async () => {
+      const content = await getHeroContent();
+      if (content) {
+        setHeroContent(content);
+      }
+    };
+    fetchHeroContent();
+  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-900">
       {/* Background Pattern */}
@@ -32,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
           >
-            {translations.hero.title}
+            {language === 'en' ? heroContent.title_en : heroContent.title_fr}
           </motion.h1>
 
           <motion.p
@@ -41,7 +63,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed"
           >
-            {translations.hero.description}
+            {language === 'en' ? heroContent.description_en : heroContent.description_fr}
           </motion.p>
 
           <motion.div
@@ -54,7 +76,7 @@ export default function Hero() {
               href="#projects"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300"
             >
-              {translations.hero.viewWork}
+              {language === 'en' ? heroContent.viewWork_en : heroContent.viewWork_fr}
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"
@@ -75,7 +97,7 @@ export default function Hero() {
               target="_blank"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-colors duration-300"
             >
-              {translations.hero.getInTouch}
+              {language === 'en' ? heroContent.getInTouch_en : heroContent.getInTouch_fr}
             </a>
           </motion.div>
         </motion.div>
