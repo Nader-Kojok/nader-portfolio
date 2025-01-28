@@ -44,3 +44,12 @@ node_modules/
 .env
 .DS_Store
 build/
+
+# Ignore build and cache files
+dist/
+.next/
+.cache/
+
+# Ignore webpack cache files
+.next/**/*.pack
+dist/**/*.pack

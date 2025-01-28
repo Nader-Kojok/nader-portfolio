@@ -6,30 +6,51 @@ const heroSchema = {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'title_en',
+      title: 'Title (English)',
       type: 'string',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'subtitle',
-      title: 'Subtitle',
+      name: 'description_en',
+      title: 'Description (English)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'viewWork_en',
+      title: 'View Work Button (English)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'getInTouch_en',
+      title: 'Get in Touch Button (English)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'title_fr',
+      title: 'Title (French)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'description_fr',
+      title: 'Description (French)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: {
-        hotspot: true
-      },
+      name: 'viewWork_fr',
+      title: 'View Work Button (French)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'getInTouch_fr',
+      title: 'Get in Touch Button (French)',
+      type: 'string',
       validation: (Rule: Rule) => Rule.required()
     }
   ]

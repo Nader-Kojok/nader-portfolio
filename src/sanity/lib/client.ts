@@ -6,7 +6,9 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  useCdn: false, // Disable CDN to fetch directly from Sanity API
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN, // Add token for authentication
+  ignoreBrowserTokenWarning: true // Ignore token warnings in browser
 })
 
 export async function getHeroContent() {
