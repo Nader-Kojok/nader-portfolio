@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Increase hit areas for clickable elements */
+a, button, [role="button"], [role="link"], input[type="submit"], .cursor-pointer {
+  position: relative;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+/* Prevent padding from affecting layout */
+a:not(:last-child), button:not(:last-child), [role="button"]:not(:last-child), [role="link"]:not(:last-child), input[type="submit"]:not(:last-child), .cursor-pointer:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

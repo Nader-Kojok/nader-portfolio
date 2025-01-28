@@ -8,7 +8,7 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
-  const springConfig = { damping: 10, stiffness: 250, mass: 0.05 };
+  const springConfig = { damping: 10, stiffness: 250, mass: 0.07 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -17,12 +17,14 @@ export default function CustomCursor() {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
 
-      const hoveredElement = document.elementFromPoint(
-        e.clientX + 16,
-        e.clientY + 16
+      const hoveredElements = document.elementsFromPoint(
+        e.clientX,
+        e.clientY
       );
       
-      const isClickable = hoveredElement?.closest('a, button, [role="button"]');
+      const isClickable = hoveredElements.some(el => 
+        el.closest('a, button, [role="button"], [role="link"], input[type="submit"], .cursor-pointer')
+      );
       setIsPointer(!!isClickable);
     };
 
