@@ -39,8 +39,26 @@ const aboutSchema = {
       name: 'skills_list',
       title: 'Skills List',
       type: 'array',
-      of: [{ type: 'string' }],
-      validation: (Rule: Rule) => Rule.required()
+      of: [
+        {
+          type: 'object',
+          name: 'skill',
+          fields: [
+            {
+              name: 'skillName',
+              type: 'string',
+              title: 'Skill',
+              validation: (Rule: Rule) => Rule.required()
+            }
+          ],
+          preview: {
+            select: {
+              title: 'skillName'
+            }
+          }
+        }
+      ],
+      validation: (Rule: Rule) => Rule.required().min(1)
     },
     {
       name: 'journey_title_en',
@@ -60,6 +78,7 @@ const aboutSchema = {
       type: 'array',
       of: [{
         type: 'object',
+        name: 'experience',
         fields: [
           {
             name: 'role_en',

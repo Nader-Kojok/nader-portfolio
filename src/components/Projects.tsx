@@ -3,79 +3,33 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import Image from "next/image";
+import { useEffect, useState } from 'react';
+import { getProjects } from '../sanity/lib/project';
+import { urlForImage } from '../sanity/lib/image';
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 interface Project {
-  id: number;
+  _id: string;
   title: string;
   description: string;
-  image: string;
+  image: SanityImageSource;
   tools: string[];
-  link: string;
 }
-
-interface ProjectTranslations {
-  en: Project[];
-  fr: Project[];
-}
-
-const projects: ProjectTranslations = {
-  en: [
-    {
-      id: 1,
-      title: "E-Commerce Dashboard",
-      description: "A modern dashboard interface for managing online store operations with real-time analytics and inventory management.",
-      image: "/projects/dashboard.jpg",
-      tools: ["Figma", "React", "Tailwind CSS", "Chart.js"],
-      link: "#"
-    },
-    {
-      id: 2,
-      title: "Health & Wellness App",
-      description: "Mobile application design for tracking personal health metrics, meditation sessions, and workout routines.",
-      image: "/projects/health-app.jpg",
-      tools: ["Adobe XD", "Sketch", "Principle"],
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Financial Platform Redesign",
-      description: "Complete UX/UI overhaul of a financial services platform, focusing on simplifying complex transactions.",
-      image: "/projects/finance.jpg",
-      tools: ["Figma", "Protopie", "Adobe Creative Suite"],
-      link: "#"
-    },
-  ],
-  fr: [
-    {
-      id: 1,
-      title: "Tableau de Bord E-Commerce",
-      description: "Une interface de tableau de bord moderne pour gérer les opérations de boutique en ligne avec des analyses en temps réel et la gestion des stocks.",
-      image: "/projects/dashboard.jpg",
-      tools: ["Figma", "React", "Tailwind CSS", "Chart.js"],
-      link: "#"
-    },
-    {
-      id: 2,
-      title: "Application Santé & Bien-être",
-      description: "Conception d'une application mobile pour suivre les métriques de santé personnelle, les séances de méditation et les routines d'exercice.",
-      image: "/projects/health-app.jpg",
-      tools: ["Adobe XD", "Sketch", "Principle"],
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Refonte de Plateforme Financière",
-      description: "Refonte complète de l'expérience utilisateur d'une plateforme de services financiers, axée sur la simplification des transactions complexes.",
-      image: "/projects/finance.jpg",
-      tools: ["Figma", "Protopie", "Adobe Creative Suite"],
-      link: "#"
-    },
-  ]
-};
-
 
 export default function Projects() {
-  const { language, translations } = useLanguage();
+  const { translations } = useLanguage();
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projectsData = await getProjects();
+      if (projectsData) {
+        setProjects(projectsData);
+      }
+    };
+    fetchProjects();
+  }, []);
+
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
@@ -94,9 +48,9 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects[language].map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={project._id}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ 
@@ -115,7 +69,7 @@ export default function Projects() {
             >
               <div className="relative h-48 w-full">
                 <Image
-                  src={project.image}
+                  src={urlForImage(project.image).url()}
                   alt={project.title}
                   fill
                   className="object-cover"
@@ -139,8 +93,8 @@ export default function Projects() {
                   ))}
                 </div>
                 <a
-                  href={`/projects/${project.id}`}
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                  href={`/projects/${project._id}`}
+                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline cursor-none"
                 >
                   {translations.projects.viewProject}
                   <svg

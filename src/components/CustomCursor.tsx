@@ -43,7 +43,7 @@ export default function CustomCursor() {
       `}</style>
       
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-50 drop-shadow-lg"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] drop-shadow-lg"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

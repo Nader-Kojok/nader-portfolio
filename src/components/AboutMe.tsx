@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useEffect, useState } from 'react';
+import { getAboutContent } from '../sanity/lib/about';
 
 // Using simple SVG icons instead of FontAwesome
 const DownloadIcon = () => (
@@ -31,18 +33,65 @@ const LinkedInIcon = () => (
 );
 
 export default function AboutMe() {
-  const { translations } = useLanguage();
+  const { language } = useLanguage();
+  const [aboutContent, setAboutContent] = useState({
+    title_en: '',
+    description_en: '',
+    downloadResume_en: '',
+    skills_title_en: '',
+    skills_description_en: '',
+    skills_list: [],
+    journey_title_en: '',
+    journey_description_en: '',
+    experiences: [],
+    social_title_en: '',
+    social_description_en: '',
+    social_connect_en: '',
+    title_fr: '',
+    description_fr: '',
+    downloadResume_fr: '',
+    skills_title_fr: '',
+    skills_description_fr: '',
+    journey_title_fr: '',
+    journey_description_fr: '',
+    social_title_fr: '',
+    social_description_fr: '',
+    social_connect_fr: ''
+  });
 
-  const skills = translations.about.skills.list.map(skill => ({
-    name: skill,
+  useEffect(() => {
+    const fetchAboutContent = async () => {
+      const content = await getAboutContent();
+      if (content) {
+        setAboutContent(content);
+      }
+    };
+    fetchAboutContent();
+  }, []);
+
+  interface Skill {
+    skillName: string;
+  }
+
+  interface Experience {
+    period: string;
+    role_en: string;
+    role_fr: string;
+    company: string;
+    description_en: string;
+    description_fr: string;
+  }
+
+  const skills = (aboutContent.skills_list as Skill[]).map((skill) => ({
+    name: skill.skillName,
     level: "Expert"
   }));
 
-  const experience = translations.about.journey.experiences.map(exp => ({
+  const experience = (aboutContent.experiences as Experience[]).map((exp) => ({
     year: exp.period,
-    role: exp.role,
+    role: language === 'en' ? exp.role_en : exp.role_fr,
     company: exp.company,
-    description: exp.description
+    description: language === 'en' ? exp.description_en : exp.description_fr
   }));
 
   return (
@@ -56,10 +105,10 @@ export default function AboutMe() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            {translations.about.title}
+            {language === 'en' ? aboutContent.title_en : aboutContent.title_fr}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {translations.about.description}
+            {language === 'en' ? aboutContent.description_en : aboutContent.description_fr}
           </p>
         </motion.div>
 
@@ -73,7 +122,7 @@ export default function AboutMe() {
           >
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                {translations.about.skills.title}
+                {language === 'en' ? aboutContent.skills_title_en : aboutContent.skills_title_fr}
               </h3>
               <div className="flex flex-wrap gap-4 gap-y-8">
                 {skills.map((skill, index) => (
@@ -98,7 +147,7 @@ export default function AboutMe() {
 
             <div className="mt-12">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                {translations.about.social.title}
+                {language === 'en' ? aboutContent.social_title_en : aboutContent.social_title_fr}
               </h3>
               <div className="flex gap-4">
                 <motion.a
@@ -140,7 +189,7 @@ export default function AboutMe() {
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              {translations.about.journey.title}
+              {language === 'en' ? aboutContent.journey_title_en : aboutContent.journey_title_fr}
             </h3>
             <div className="space-y-8">
               {experience.map((exp, index) => (
@@ -179,7 +228,7 @@ export default function AboutMe() {
                 download
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 gap-2"
               >
-                {translations.about.downloadResume}
+                {language === 'en' ? aboutContent.downloadResume_en : aboutContent.downloadResume_fr}
                 <span className="inline-flex items-center justify-center w-5 h-5">
                   <DownloadIcon />
                 </span>

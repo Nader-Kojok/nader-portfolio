@@ -74,7 +74,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 cursor-none"
             >
               {language === 'en' ? heroContent.viewWork_en : heroContent.viewWork_fr}
               <svg
@@ -95,7 +95,7 @@ export default function Hero() {
             <a
               href="https://calendly.com/naderkojok/30min"
               target="_blank"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-colors duration-300 cursor-none"
             >
               {language === 'en' ? heroContent.getInTouch_en : heroContent.getInTouch_fr}
             </a>
