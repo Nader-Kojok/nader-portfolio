@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-40 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-40 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800" aria-labelledby="projects-title">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 id="projects-title" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {translations.projects.title}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -64,6 +64,8 @@ export default function Projects() {
               <a
                 href={`/projects/${project._id}`}
                 className="block h-[400px] relative overflow-hidden"
+                aria-labelledby={`project-title-${project._id}`}
+                role="article"
               >
                 <Image
                   src={urlForImage(project.image).url()}
@@ -85,7 +87,7 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-2xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300">
+                    <h3 id={`project-title-${project._id}`} className="text-2xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300">
                       {project.title}
                     </h3>
                     <p className="text-gray-200 line-clamp-2 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">

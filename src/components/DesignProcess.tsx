@@ -33,7 +33,7 @@ export default function DesignProcess() {
   ];
 
   return (
-    <section ref={ref} className="py-40 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section ref={ref} className="py-40 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900" aria-labelledby="design-process-title">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -45,7 +45,7 @@ export default function DesignProcess() {
           }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 id="design-process-title" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {translations?.designProcess?.title || 'Design Process'}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -72,6 +72,8 @@ export default function DesignProcess() {
               }}
               whileTap={{ scale: 0.98 }}
               className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+              role="article"
+              aria-labelledby={`step-title-${step.key}`}
             >
               <div className={`flex items-center justify-center w-12 h-12 rounded-full mb-4 ${step.key === 'discovery' ? 'bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30' : step.key === 'define' ? 'bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30' : step.key === 'design' ? 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30' : 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30'}`}>
                 {step.key === 'discovery' && (

@@ -138,6 +138,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 className="gallery-item relative h-64 rounded-lg overflow-hidden cursor-pointer"
                 data-src={urlForImage(image).url()}
                 data-sub-html={`<h4>Image ${index + 1}</h4>`}
+                role="button"
+                aria-label={`View gallery image ${index + 1}`}
               >
                 <Image
                   src={urlForImage(image).url()}
