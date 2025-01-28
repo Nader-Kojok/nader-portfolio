@@ -1,4 +1,6 @@
-export default {
+import { Rule } from '@sanity/types'
+
+const projectSchema = {
   name: 'project',
   title: 'Project',
   type: 'document',
@@ -7,19 +9,19 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'fullDescription',
       title: 'Full Description',
       type: 'text',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'image',
@@ -28,33 +30,33 @@ export default {
       options: {
         hotspot: true
       },
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'tools',
       title: 'Tools Used',
       type: 'array',
       of: [{ type: 'string' }],
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'challenge',
       title: 'Challenge',
       type: 'text',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'solution',
       title: 'Solution',
       type: 'text',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'results',
       title: 'Key Results',
       type: 'array',
       of: [{ type: 'string' }],
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'testimonial',
@@ -86,3 +88,5 @@ export default {
     }
   ]
 }
+
+export default projectSchema
