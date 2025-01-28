@@ -74,23 +74,27 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 cursor-none"
+              className="group relative inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 cursor-none overflow-hidden"
             >
-              {language === 'en' ? heroContent.viewWork_en : heroContent.viewWork_fr}
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
+              <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 to-red-500 bg-[length:200%_100%] opacity-0 group-hover:opacity-100 animate-[gradient_3s_linear_infinite]"></span>
+              <span className="absolute inset-[2px] z-10 rounded-lg bg-blue-600 group-hover:bg-blue-700 transition-colors duration-300"></span>
+              <span className="relative z-20 inline-flex items-center">
+                {language === 'en' ? heroContent.viewWork_en : heroContent.viewWork_fr}
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </span>
             </a>
             <a
               href="https://calendly.com/naderkojok/30min"

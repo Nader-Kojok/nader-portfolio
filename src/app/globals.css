@@ -28,3 +28,16 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+@keyframes rainbow-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rainbow-border {
+  animation: rainbow-border 4s linear infinite;
+}
