@@ -82,6 +82,23 @@ interface Translations {
       projects: string;
       contact: string;
     };
+    scheduleCall: {
+      title: string;
+      buttonText: string;
+    };
+    contactInfo: {
+      title: string;
+      email: string;
+      phone: string;
+    };
+    social: {
+      title: string;
+      links: {
+        linkedin: string;
+        github: string;
+        instagram: string;
+      };
+    };
   };
 }
 
@@ -98,22 +115,22 @@ const translations: Record<Language, Translations> = {
       description: 'What our clients say about our work and collaboration',
       items: [
         {
-          quote: 'Working with this team was an absolute pleasure. They understood our vision perfectly and delivered beyond our expectations.',
-          author: 'Sarah Johnson',
-          role: 'Marketing Director',
-          company: 'Tech Innovations Ltd'
+          quote: 'Working with Nader was a seamless and rewarding experience. He immediately understood our vision and transformed it into a solution that exceeded our expectations.',
+          author: 'Sokhna FALL',
+          role: 'Founder',
+          company: 'Bolide'
         },
         {
-          quote: 'The attention to detail and commitment to user experience was impressive. Our new platform has received outstanding feedback.',
-          author: 'Michael Chen',
-          role: 'Product Manager',
-          company: 'Digital Solutions Inc'
-        },
-        {
-          quote: 'A truly professional team that combines creativity with technical expertise. The results speak for themselves.',
-          author: 'Emma Davis',
+          quote: 'Nader doesn’t just design prototypes—he lays the foundation for an app that makes sense.',
+          author: 'Anwar SAFA',
           role: 'CEO',
-          company: 'Creative Studios'
+          company: 'ArmaSoft'
+        },
+        {
+          quote: 'Nader brought a perfect balance of design and functionality to our e-commerce platform. The result? A smooth, intuitive shopping experience that our customers love.',
+          author: 'François PINOT',
+          role: 'Marketing Director',
+          company: 'Point-show'
         }
       ]
     },
@@ -185,12 +202,29 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       getInTouch: 'Get in Touch',
-      rights: 'All rights reserved.',
+      rights: '© 2024 Nader Kojok. All rights reserved.',
       quickLinks: {
         title: 'Quick Links',
         about: 'About',
         projects: 'Projects',
         contact: 'Contact'
+      },
+      scheduleCall: {
+        title: 'Schedule a Call',
+        buttonText: 'Book a Meeting'
+      },
+      contactInfo: {
+        title: 'Contact',
+        email: 'nader.k@agencearcane.com',
+        phone: '+221 78 463 40 40'
+      },
+      social: {
+        title: 'Follow',
+        links: {
+          linkedin: 'LinkedIn',
+          github: 'GitHub',
+          instagram: 'Instagram'
+        }
       }
     },
   },
@@ -202,26 +236,26 @@ const translations: Record<Language, Translations> = {
       getInTouch: 'Me Contacter',
     },
     testimonials: {
-      title: 'Témoignages Clients',
-      description: 'Ce que nos clients disent de notre travail et de notre collaboration',
+      title: 'Avis Clients',
+      description: 'Ce qu’ils retiennent de notre collaboration et des résultats obtenus.',
       items: [
         {
-          quote: 'Travailler avec cette équipe a été un véritable plaisir. Ils ont parfaitement compris notre vision et ont dépassé nos attentes.',
-          author: 'Sarah Johnson',
-          role: 'Directrice Marketing',
-          company: 'Tech Innovations Ltd'
+          quote: 'Travailler avec Nader a été une expérience fluide et enrichissante. Il a su comprendre notre vision dès le départ et l’a transformée en une solution adaptée qui fonctionne bien.',
+          author: 'Sokhna FALL',
+          role: 'Fondatrice',
+          company: 'Bolide'
         },
         {
-          quote: "L'attention aux détails et l'engagement envers l'expérience utilisateur étaient impressionnants. Notre nouvelle plateforme a reçu des retours exceptionnels.",
-          author: 'Michael Chen',
-          role: 'Chef de Produit',
-          company: 'Digital Solutions Inc'
+          quote: "Nader ne se contente pas de faire des prototypes, il pose les bases d’une application qui a du sens.",
+          author: 'Anwar SAFA',
+          role: 'CEO',
+          company: 'ArmaSoft'
         },
         {
-          quote: 'Une équipe vraiment professionnelle qui allie créativité et expertise technique. Les résultats parlent d\'eux-mêmes.',
-          author: 'Emma Davis',
-          role: 'PDG',
-          company: 'Creative Studios'
+          quote: 'Nader a su allier design et performance pour notre site e-commerce. Résultat : une expérience fluide et intuitive, très appréciée par nos clients.',
+          author: 'François PINOT',
+          role: 'Directeur Marketing',
+          company: 'Point-show'
         }
       ]
     },
@@ -271,34 +305,51 @@ const translations: Record<Language, Translations> = {
     },
     designProcess: {
       title: 'Processus de Design',
-      description: 'Mon approche systématique pour créer des solutions numériques significatives',
+      description: 'Une méthode claire pour concevoir des solutions digitales qui font la différence.',
       steps: {
         discovery: {
-          title: 'Découverte',
-          description: 'Comprendre les besoins des utilisateurs, les objectifs commerciaux et le contexte du marché par la recherche et l\'analyse.'
+          title: 'Recherche',
+          description: 'Observer, écouter, comprendre. Décortiquer les besoins des utilisateurs, saisir les enjeux business et analyser le marché pour partir sur des bases solides.'
         },
         define: {
           title: 'Définition',
-          description: 'Synthétiser les insights de recherche pour identifier les opportunités clés et définir des objectifs de projet clairs.'
+          description: 'Faire le tri, synthétiser, structurer. Transformer les données brutes en décisions claires. Identifier ce qui a du potentiel et fixer une direction sans perdre de temps.'
         },
         design: {
           title: 'Design',
-          description: 'Créer des interfaces intuitives et des expériences engageantes à travers un design itératif et le prototypage.'
+          description: 'Expérimenter, ajuster, affiner. Construire des interfaces qui ont du sens, qui attirent et qui fonctionnent. Tester, itérer, jusqu’à ce que l’expérience soit fluide et naturelle.'
         },
         deliver: {
           title: 'Livraison',
-          description: 'Mettre en œuvre et lancer des solutions tout en assurant la qualité et l\'amélioration continue.'
+          description: 'Lancer, mesurer, améliorer. Déployer un produit qui tient la route, assurer son évolution et s’assurer qu’il crée de la valeur, aujourd’hui et demain.'
         }
       }
     },
     footer: {
-      getInTouch: 'Me Contacter',
-      rights: 'Tous droits réservés.',
+      getInTouch: 'Discutons ensemble',
+      rights: '© 2024 Nader Kojok. Tous droits réservés.',
       quickLinks: {
-        title: 'Liens Rapides',
+        title: 'Liens Utiles',
         about: 'À Propos',
         projects: 'Projets',
         contact: 'Contact'
+      },
+      scheduleCall: {
+        title: 'Planifier un Appel',
+        buttonText: 'Discutons ensemble'
+      },
+      contactInfo: {
+        title: 'Contact',
+        email: 'nader.k@agencearcane.com',
+        phone: '+221 78 463 40 40'
+      },
+      social: {
+        title: 'Suivez',
+        links: {
+          linkedin: 'LinkedIn',
+          github: 'GitHub',
+          instagram: 'Instagram'
+        }
       }
     },
   },

@@ -42,14 +42,14 @@ export default function Testimonials() {
               transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[300px]"
           >
             <div className="mb-6">
               <svg className="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
+            <p className="text-gray-600 dark:text-gray-300 mb-auto italic">
               &quot;{translations?.testimonials?.items[0]?.quote}&quot;
             </p>
             <div className="flex items-center">
@@ -82,14 +82,14 @@ export default function Testimonials() {
               transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[300px]"
           >
             <div className="mb-6">
               <svg className="w-8 h-8 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
+            <p className="text-gray-600 dark:text-gray-300 mb-auto italic">
               &quot;{translations?.testimonials?.items[1]?.quote}&quot;
             </p>
             <div className="flex items-center">
@@ -122,14 +122,14 @@ export default function Testimonials() {
               transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40"
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[300px]"
           >
             <div className="mb-6">
               <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
+            <p className="text-gray-600 dark:text-gray-300 mb-auto italic">
               &quot;{translations?.testimonials?.items[2]?.quote}&quot;
             </p>
             <div className="flex items-center">
