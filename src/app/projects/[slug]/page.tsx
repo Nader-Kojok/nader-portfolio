@@ -19,9 +19,16 @@ export async function generateMetadata(
   const resolvedParams = await params;
   const project = await getProject(resolvedParams.slug);
 
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      description: 'The requested project could not be found.',
+    };
+  }
+
   return {
-    title: project.title,
-    description: project.fullDescription,
+    title: project.title_en,
+    description: project.fullDescription_en,
   };
 }
 

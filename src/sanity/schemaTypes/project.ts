@@ -6,20 +6,38 @@ const projectSchema = {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'title_en',
+      title: 'Title (English)',
       type: 'string',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'title_fr',
+      title: 'Title (French)',
+      type: 'string',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'description_en',
+      title: 'Description (English)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'fullDescription',
-      title: 'Full Description',
+      name: 'description_fr',
+      title: 'Description (French)',
+      type: 'text',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'fullDescription_en',
+      title: 'Full Description (English)',
+      type: 'text',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'fullDescription_fr',
+      title: 'Full Description (French)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
@@ -40,14 +58,26 @@ const projectSchema = {
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'challenge',
-      title: 'Challenge',
+      name: 'challenge_en',
+      title: 'Challenge (English)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
     {
-      name: 'solution',
-      title: 'Solution',
+      name: 'challenge_fr',
+      title: 'Challenge (French)',
+      type: 'text',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'solution_en',
+      title: 'Solution (English)',
+      type: 'text',
+      validation: (Rule: Rule) => Rule.required()
+    },
+    {
+      name: 'solution_fr',
+      title: 'Solution (French)',
       type: 'text',
       validation: (Rule: Rule) => Rule.required()
     },
@@ -55,7 +85,23 @@ const projectSchema = {
       name: 'results',
       title: 'Key Results',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{
+        type: 'object',
+        fields: [
+          {
+            name: 'text_en',
+            title: 'Result (English)',
+            type: 'text',
+            validation: (Rule: Rule) => Rule.required()
+          },
+          {
+            name: 'text_fr',
+            title: 'Result (French)',
+            type: 'text',
+            validation: (Rule: Rule) => Rule.required()
+          }
+        ]
+      }],
       validation: (Rule: Rule) => Rule.required()
     },
     {
@@ -64,8 +110,13 @@ const projectSchema = {
       type: 'object',
       fields: [
         {
-          name: 'quote',
-          title: 'Quote',
+          name: 'quote_en',
+          title: 'Quote (English)',
+          type: 'text'
+        },
+        {
+          name: 'quote_fr',
+          title: 'Quote (French)',
           type: 'text'
         },
         {
@@ -74,8 +125,13 @@ const projectSchema = {
           type: 'string'
         },
         {
-          name: 'role',
-          title: 'Role',
+          name: 'role_en',
+          title: 'Role (English)',
+          type: 'string'
+        },
+        {
+          name: 'role_fr',
+          title: 'Role (French)',
           type: 'string'
         }
       ]
