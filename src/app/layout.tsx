@@ -32,16 +32,6 @@ export const metadata: Metadata = {
       rel: "icon",
       type: "image/svg+xml",
       url: "/favicon.svg"
-    },
-    {
-      rel: "icon",
-      url: "/favicon_white.svg",
-      media: "(prefers-color-scheme: dark)"
-    },
-    {
-      rel: "icon",
-      url: "/favicon_black.svg",
-      media: "(prefers-color-scheme: light)"
     }
   ],
 };
