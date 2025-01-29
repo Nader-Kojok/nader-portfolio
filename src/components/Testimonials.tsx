@@ -42,7 +42,7 @@ export default function Testimonials() {
               transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-6 sm:mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[280px] sm:min-h-[300px]"
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[350px] sm:min-h-[300px]"
           >
             <div className="mb-6">
               <svg className="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@ export default function Testimonials() {
               transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[300px]"
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-md hover:shadow-xl dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40 flex flex-col min-h-[350px] sm:min-h-[300px]"
           >
             <div className="mb-6">
               <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
