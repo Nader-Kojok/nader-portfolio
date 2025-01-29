@@ -4,11 +4,13 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { translations } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -29,10 +31,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <div className="flex space-x-4 mr-16">
               <Link href="/#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                About
+                {translations.footer.quickLinks.about}
               </Link>
               <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Projects
+                {translations.footer.quickLinks.projects}
               </Link>
             </div>
             <div className="flex items-center space-x-2">
@@ -80,10 +82,10 @@ export default function Navbar() {
           <div className="md:hidden py- bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-lg shadow-lg mx-2" id="mobile-menu" role="menu" aria-label="Mobile menu">
             <div className="flex flex-col space-y-2">
               <Link href="/#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                About
+                {translations.footer.quickLinks.about}
               </Link>
               <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Projects
+                {translations.footer.quickLinks.projects}
               </Link>
               <div className="flex items-center space-x-2">
                 <LanguageSwitcher />
