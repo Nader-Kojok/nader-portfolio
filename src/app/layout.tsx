@@ -18,6 +18,16 @@ export const metadata: Metadata = {
   keywords: ["UX/UI Designer", "Portfolio", "Web Design", "User Experience", "User Interface"],
   icons: [
     {
+      rel: "icon",
+      url: "/favicon.ico",
+      sizes: "any"
+    },
+    {
+      rel: "icon",
+      url: "/favicon.svg",
+      type: "image/svg+xml"
+    },
+    {
       media: "(prefers-color-scheme: dark)",
       url: "/favicon_white.svg",
       rel: "icon"

@@ -61,11 +61,6 @@ export default function Footer() {
                     {translations.footer.quickLinks.about}
                   </a>
                 </li>
-                <li>
-                  <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    {translations.footer.quickLinks.contact}
-                  </a>
-                </li>
               </ul>
             </motion.div>
 

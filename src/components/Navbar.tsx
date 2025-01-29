@@ -33,9 +33,6 @@ export default function Navbar() {
             <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Projects
             </Link>
-            <Link href="/#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              Contact
-            </Link>
             <LanguageSwitcher />
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -83,9 +80,6 @@ export default function Navbar() {
               </Link>
               <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Projects
-              </Link>
-              <Link href="/#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Contact
               </Link>
               <div className="flex items-center justify-between">
                 <LanguageSwitcher />
