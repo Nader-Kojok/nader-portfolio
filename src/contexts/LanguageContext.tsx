@@ -202,7 +202,7 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       getInTouch: 'Get in Touch',
-      rights: '© 2024 Nader Kojok. All rights reserved.',
+      rights: '© 2025 Nader Kojok. All rights reserved.',
       quickLinks: {
         title: 'Quick Links',
         about: 'About',
@@ -327,7 +327,7 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       getInTouch: 'Discutons ensemble',
-      rights: '© 2024 Nader Kojok. Tous droits réservés.',
+      rights: '© 2025 Nader Kojok. Tous droits réservés.',
       quickLinks: {
         title: 'Liens Utiles',
         about: 'À Propos',
