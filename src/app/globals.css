@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Increase hit areas for clickable elements */
 a, button, [role="button"], [role="link"], input[type="submit"], .cursor-pointer {
