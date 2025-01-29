@@ -13,9 +13,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "UX/UI Designer Portfolio",
-  description: "Professional UX/UI Designer portfolio showcasing creative design solutions and innovative user experiences",
-  keywords: ["UX/UI Designer", "Portfolio", "Web Design", "User Experience", "User Interface"],
+  title: "Nader Kojok | UX/UI Designer – Conception d'Interfaces Web et Mobiles",
+  description: "Parcourez les projets de Nader Kojok, Designer UX/UI, mettant l'accent sur des solutions créatives et des designs centrés sur l'utilisateur pour des produits digitaux performants.",
+  keywords: ["Designer UX/UI", "Expérience utilisateur impactante", "Design qui convertit", "Interfaces engageantes", "Portfolio UX/UI", "Design web & mobile", "Conception produit digital"],
   icons: [
     {
       rel: "icon",
