@@ -19,23 +19,29 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
+      type: "image/x-icon",
+      url: "/favicon.ico",
+      sizes: "16x16"
+    },
+    {
+      rel: "icon",
       url: "/favicon.ico",
       sizes: "any"
     },
     {
       rel: "icon",
-      url: "/favicon.svg",
-      type: "image/svg+xml"
+      type: "image/svg+xml",
+      url: "/favicon.svg"
     },
     {
-      media: "(prefers-color-scheme: dark)",
+      rel: "icon",
       url: "/favicon_white.svg",
-      rel: "icon"
+      media: "(prefers-color-scheme: dark)"
     },
     {
-      media: "(prefers-color-scheme: light)",
+      rel: "icon",
       url: "/favicon_black.svg",
-      rel: "icon"
+      media: "(prefers-color-scheme: light)"
     }
   ],
 };
