@@ -36,6 +36,7 @@
     "dist/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist" // <- Ignore dist so it doesn't conflict with local source types
   ]
 }
