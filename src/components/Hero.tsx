@@ -78,7 +78,7 @@ export default function Hero() {
             <a
               href="https://calendly.com/naderkojok/30min"
               target="_blank"
-              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-colors duration-300 cursor-none whitespace-nowrap"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-blue-600 dark:text-blue-400 bg-transparent hover:bg-blue-100 dark:hover:bg-blue-900/20 border-2 border-blue-600 dark:border-blue-400 rounded-lg transition-all duration-300 cursor-none whitespace-nowrap"
             >
               {translations.hero.getInTouch}
             </a>
