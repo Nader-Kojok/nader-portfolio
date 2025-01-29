@@ -12,6 +12,18 @@ import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { useEffect, useState } from 'react';
+import { getProjects } from '../sanity/lib/project';
+
+interface Project {
+  _id: string;
+  title: string;
+  title_en: string;
+  title_fr: string;
+  description: string;
+  image: SanityImageSource;
+  tools: string[];
+}
 
 interface ProjectDetailProps {
   project: {
@@ -41,9 +53,24 @@ interface ProjectDetailProps {
 }
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
-  const context = useContext(LanguageContext);
-  const language = context?.language;
-  const lightGalleryRef = useRef<any>(null);
+  const { language = 'en' } = useContext(LanguageContext) ?? {};
+  const lightGalleryRef = useRef<typeof LightGallery | null>(null);
+  const [moreProjects, setMoreProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchMoreProjects = async () => {
+      const projectsData = await getProjects();
+      if (projectsData) {
+        // Filter out current project and get random 2 projects
+        const otherProjects = projectsData.filter((p: { title_en: string; }) => p.title_en !== project.title_en);
+        const randomProjects = otherProjects
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 2);
+        setMoreProjects(randomProjects);
+      }
+    };
+    fetchMoreProjects();
+  }, [project.title_en]); // Using title_en as dependency since it's unique
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -190,7 +217,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Project Gallery</h2>
           <LightGallery
             onInit={(detail) => {
-              lightGalleryRef.current = detail.instance;
+              if (detail) {
+                const lgInstance = detail as unknown as { instance: typeof LightGallery };
+                if (lgInstance.instance) {
+                  lightGalleryRef.current = lgInstance.instance;
+                }
+              }
             }}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
@@ -209,7 +241,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               >
                 <Image
                   src={urlForImage(image).url()}
-                  alt={`Gallery image ${index + 1}`}
+                  alt={`Gallery image ${index + 1} for ${language === 'en' ? project.title_en : project.title_fr}`}
                   fill
                   className="object-cover transition-transform duration-500 hover:scale-110"
                 />
@@ -234,6 +266,96 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </LightGallery>
         </motion.div>
       )}
+      {/* More Projects */}
+      <motion.div variants={itemVariants} className="mb-20">
+        <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">
+          {language === 'en' ? 'Explore More Projects' : 'Découvrir Plus de Projets'}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {moreProjects.map((project, index) => (
+            <motion.div
+              key={project._id}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.15,
+                ease: [0.25, 0.1, 0.25, 0.5]
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative overflow-hidden rounded-3xl bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <a
+                href={`/projects/${project._id}`}
+                className="block h-[400px] relative overflow-hidden"
+                aria-labelledby={`project-title-${project._id}`}
+                role="article"
+              >
+                <Image
+                  src={urlForImage(project.image).url()}
+                  alt={`Project preview for ${project.title}`}
+                  fill
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-white/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 backdrop-blur-sm" />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="space-y-4">
+                    <h3 id={`project-title-${project._id}`} className="text-xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                      {language === 'en' ? project.title_en : project.title_fr || project.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-gray-200 line-clamp-2 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </motion.div>
+          ))}
+          {/* View All Projects Card */}
+          <motion.a
+            href="/projects"
+            className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-900/20 dark:to-purple-900/20 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl hover:shadow-2xl transition-all duration-300"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center p-6">
+                <svg
+                  className="w-16 h-16 mx-auto mb-4 text-blue-500 dark:text-blue-400 transform group-hover:scale-110 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  {language === 'en' ? 'View All Projects' : 'Voir Tous les Projets'}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {language === 'en'
+                    ? 'Discover more of our creative work'
+                    : 'Découvrez plus de nos créations'}
+                </p>
+              </div>
+            </div>
+          </motion.a>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }

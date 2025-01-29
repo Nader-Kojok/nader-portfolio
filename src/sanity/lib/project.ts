@@ -3,6 +3,8 @@ import { client } from './client';
 export async function getProjects() {
   const query = `*[_type == "project"]{
     title,
+    title_en,
+    title_fr,
     description,
     image,
     tools,

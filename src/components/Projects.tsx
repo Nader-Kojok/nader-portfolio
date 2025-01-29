@@ -11,13 +11,15 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 interface Project {
   _id: string;
   title: string;
+  title_en: string;
+  title_fr: string;
   description: string;
   image: SanityImageSource;
   tools: string[];
 }
 
 export default function Projects() {
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function Projects() {
               >
                 <Image
                   src={urlForImage(project.image).url()}
-                  alt={project.title}
+                  alt={`Project preview for ${language === 'en' ? project.title_en : project.title_fr || project.title}`}
                   fill
                   className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -77,6 +79,9 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-white/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 backdrop-blur-sm" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="space-y-4">
+                    <h3 id={`project-title-${project._id}`} className="text-xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+                      {language === 'en' ? project.title_en : project.title_fr || project.title}
+                    </h3>
                     <div className="flex flex-wrap gap-2">
                       {project.tools.map((tool) => (
                         <span
@@ -87,9 +92,6 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <h3 id={`project-title-${project._id}`} className="text-2xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300">
-                      {project.title}
-                    </h3>
                     <p className="text-gray-200 line-clamp-2 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">
                       {project.description}
                     </p>

@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
-import Link from "next/link";
 
 export default function Footer() {
-  const { translations, language } = useLanguage();
+  const { translations } = useLanguage();
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 py-16 px-4 sm:px-6 lg:px-8 mt-0">
         <div className="max-w-7xl mx-auto">

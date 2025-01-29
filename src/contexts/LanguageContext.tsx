@@ -105,9 +105,9 @@ interface Translations {
 const translations: Record<Language, Translations> = {
   en: {
     hero: {
-      title: 'Hi, I’m Nader Kojok, UX/UI Designer & Front-end Developer',
-      description: "I’m passionate about creating intuitive and engaging digital experiences. I help businesses transform their ideas into memorable and impactful digital products.",
-      viewWork: 'View My Work',
+      title: 'Hi, I\'m Nader Kojok',
+      description: "UX/UI Designer | I design digital experiences that users love and businesses trust.",
+      viewWork: 'View Work',
       getInTouch: 'Get in Touch',
     },
     testimonials: {
@@ -230,10 +230,10 @@ const translations: Record<Language, Translations> = {
   },
   fr: {
     hero: {
-      title: 'Bonjour, je suis Nader Kojok, Designer UX/UI et Développeur',
-      description: "Passionné par la création d'expériences numériques intuitives et engageantes, j'aide les entreprises à transformer leurs idées en produits mémorables qui font la différence.",
-      viewWork: 'Voir Mes Projets',
-      getInTouch: 'Me Contacter',
+      title: 'Bonjour, je suis Nader Kojok',
+      description: "UX/UI Designer | Je conçois des expériences digitales que les utilisateurs adorent et que les entreprises adoptent.",
+      viewWork: 'Voir les réalisations',
+      getInTouch: 'Discutons ensemble',
     },
     testimonials: {
       title: 'Avis Clients',

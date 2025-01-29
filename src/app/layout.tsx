@@ -16,6 +16,18 @@ export const metadata: Metadata = {
   title: "UX/UI Designer Portfolio",
   description: "Professional UX/UI Designer portfolio showcasing creative design solutions and innovative user experiences",
   keywords: ["UX/UI Designer", "Portfolio", "Web Design", "User Experience", "User Interface"],
+  icons: [
+    {
+      media: "(prefers-color-scheme: dark)",
+      url: "/favicon_white.svg",
+      rel: "icon"
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      url: "/favicon_black.svg",
+      rel: "icon"
+    }
+  ],
 };
 
 export default function RootLayout({
