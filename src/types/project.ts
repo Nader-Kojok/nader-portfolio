@@ -2,10 +2,10 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export interface Project {
   _id: string;
-  title: string;
   title_en: string;
   title_fr: string;
-  description: string;
+  description_en: string;
+  description_fr: string;
   fullDescription_en: string;
   fullDescription_fr: string;
   image: SanityImageSource;

@@ -1,33 +1,41 @@
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { ThemeProviderProps as NextThemesProps } from "next-themes";
+import type { ThemeProviderProps as NextThemesProviderProps } from "next-themes";
 import React from "react";
 
-/**
- * Extend the NextThemesProps to allow a custom `disableTransition` prop.
- * We'll map that to NextThemesProvider's `disableTransitionOnChange`.
- */
-interface Props extends Omit<NextThemesProps, "disableTransitionOnChange"> {
-  /** If true, disable transitions when switching themes. */
+interface ThemeProviderProps extends Omit<NextThemesProviderProps, "disableTransitionOnChange"> {
+  /** 
+   * @description Disable CSS transitions when switching themes
+   * @default false
+   */
   disableTransition?: boolean;
+  /** @description Child components */
   children: React.ReactNode;
 }
 
-export function ThemeProvider({
+/**
+ * Custom theme provider with enhanced type safety and transition control
+ * @example
+ * <ThemeProvider attribute="class" enableSystem disableTransition>
+ *   <App />
+ * </ThemeProvider>
+ */
+export const ThemeProvider = ({
   children,
-  disableTransition,
-  ...rest
-}: Props) {
+  disableTransition = false,
+  ...props
+}: ThemeProviderProps) => {
   return (
     <NextThemesProvider
+      {...props}
       attribute="class"
       enableSystem
-      // Map our custom `disableTransition` to next-themes' `disableTransitionOnChange`
       disableTransitionOnChange={disableTransition}
-      {...rest}
     >
-      {children}
+      <div data-theme-provider="true" className="contents">
+        {children}
+      </div>
     </NextThemesProvider>
   );
-}
+};
