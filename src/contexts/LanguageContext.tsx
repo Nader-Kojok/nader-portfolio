@@ -115,7 +115,7 @@ const translations: Record<Language, Translations> = {
       description: 'What our clients say about our work and collaboration',
       items: [
         {
-          quote: 'Working with Nader was a seamless and rewarding experience. He immediately understood our vision and transformed it into a solution that exceeded our expectations.',
+          quote: 'Working with Nader was rewarding. He grasped our vision from the start and transformed it into an effective solution.',
           author: 'Sokhna FALL',
           role: 'Founder',
           company: 'Bolide'
@@ -240,7 +240,7 @@ const translations: Record<Language, Translations> = {
       description: 'Ce qu’ils retiennent de notre collaboration et des résultats obtenus.',
       items: [
         {
-          quote: 'Travailler avec Nader a été une expérience fluide et enrichissante. Il a su comprendre notre vision dès le départ et l’a transformée en une solution adaptée qui fonctionne bien.',
+          quote: 'Travailler avec Nader a été enrichissant. Il a compris notre vision dès le départ et l’a transformée en une solution efficace.',
           author: 'Sokhna FALL',
           role: 'Fondatrice',
           company: 'Bolide'

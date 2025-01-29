@@ -19,7 +19,7 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="fixed top-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-800/20 z-50" role="navigation" aria-label="Main navigation">
+    <nav className="fixed top-0 w-full bg-gray-100/90 dark:bg-gray-700/60 backdrop-blur-lg border-b border-gray-200/20 dark:border-gray-800/20 z-50" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -79,19 +79,19 @@ export default function Navbar() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py- bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-lg shadow-lg mx-2" id="mobile-menu" role="menu" aria-label="Mobile menu">
-            <div className="flex flex-col space-y-2">
-              <Link href="/#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <div className="md:hidden py-4 px-4 mx-2 mt-2" id="mobile-menu" role="menu" aria-label="Mobile menu">
+            <div className="flex flex-col space-y-4 pb-2">
+              <Link href="/#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-1">
                 {translations.footer.quickLinks.about}
               </Link>
-              <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link href="/#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-2 py-1">
                 {translations.footer.quickLinks.projects}
               </Link>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 pt-2">
                 <LanguageSwitcher />
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 transform hover:scale-105 flex items-center justify-center w-10 h-10"
+                  className="p-2.5 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 transform hover:scale-105 flex items-center justify-center w-10 h-10 border border-gray-300 dark:border-gray-700"
                   aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   {theme === 'dark' ? (

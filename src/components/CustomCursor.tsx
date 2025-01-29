@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
@@ -14,13 +15,19 @@ export default function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    // Check if device is touch-capable
+    setIsTouchDevice(
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      (navigator as any).msMaxTouchPoints > 0
+    );
+
+    if (isTouchDevice) return;
+
     const onMouseMove = (e: MouseEvent) => {
-      // Adjust cursor position to account for the cursor's center point
-      // Directly use clientX and clientY without offset for more accurate positioning
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
 
-      // Enhanced hover detection with more precise element checking
       const hoveredElements = document.elementsFromPoint(
         e.clientX,
         e.clientY
@@ -30,7 +37,6 @@ export default function CustomCursor() {
         const clickableElement = el.closest('a, button, [role="button"], [role="link"], input[type="submit"], .cursor-pointer');
         if (!clickableElement) return false;
 
-        // Check if the element is actually visible and interactive
         const style = window.getComputedStyle(clickableElement);
         return style.display !== 'none' && 
                style.visibility !== 'hidden' && 
@@ -45,18 +51,27 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isTouchDevice]);
+
+  if (isTouchDevice) return null;
 
   return (
     <>
       <style jsx global>{`
-        body * {
-          cursor: none !important;
+        @media (min-width: 1024px) {
+          body * {
+            cursor: none !important;
+          }
+        }
+        @media (max-width: 1023px) {
+          .custom-cursor {
+            display: none !important;
+          }
         }
       `}</style>
       
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] drop-shadow-lg"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] drop-shadow-lg custom-cursor"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
