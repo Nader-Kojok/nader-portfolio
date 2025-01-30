@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { getProjects } from '../sanity/lib/project';
 import { urlForImage } from '../sanity/lib/image';
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import Link from 'next/link';
 
 interface Project {
   _id: string;
@@ -63,7 +64,7 @@ export default function Projects() {
               whileTap={{ scale: 0.98 }}
               className="group relative overflow-hidden rounded-3xl bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <a
+              <Link
                 href={`/projects/${project._id}`}
                 className="block h-[400px] relative overflow-hidden"
                 aria-labelledby={`project-title-${project._id}`}
@@ -97,7 +98,7 @@ export default function Projects() {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
