@@ -158,16 +158,16 @@ const translations: Record<Language, Translations> = {
             description: 'Leading technical strategy and building high-performance web and mobile applications for clients.'
           },
           {
-            role: 'Lead Front-End Developer',
-            company: 'Tech Startup',
-            period: '2021 - 2023',
-            description: 'Architected and developed scalable React and Flutter applications with focus on performance.'
+            role: '(P)UX Designer',
+            company: 'ArmaSoft',
+            period: '2019 - 2023',
+            description: 'Conception d\'interfaces utilisateur centrées sur l\'humain et réalisation de tests d\'utilisabilité.'
           },
           {
-            role: 'Full Stack Developer',
-            company: 'Digital Agency',
-            period: '2019 - 2021',
-            description: 'Built end-to-end web solutions using Next.js, Node.js, and modern development practices.'
+            role: 'Développeur Front-end',
+            company: 'Tech Touch (Freelance)',
+            period: '2017 - 2018',
+            description: 'Conception et développement de sites web modernes et responsives, alliant performance technique et esthétique.'
           }
         ]
       },
@@ -285,16 +285,16 @@ const translations: Record<Language, Translations> = {
             description: 'Pilotage de la stratégie technique et développement d\'applications web et mobile performantes pour nos clients.'
           },
           {
-            role: 'Lead Développeur Front-End',
-            company: 'Startup Tech',
-            period: '2021 - 2023',
-            description: 'Architecture et développement d\'applications React et Flutter évolutives avec focus sur la performance.'
+            role: '(P)UX Designer',
+            company: 'ArmaSoft',
+            period: '2019 - 2023',
+            description: 'Conception d\'interfaces utilisateur centrées sur l\'humain et réalisation de tests d\'utilisabilité.'
           },
           {
-            role: 'Développeur Full Stack',
-            company: 'Agence Digitale',
-            period: '2019 - 2021',
-            description: 'Construction de solutions web complètes avec Next.js, Node.js et les pratiques de développement modernes.'
+            role: 'Développeur Front-end',
+            company: 'Tech Touch (Freelance)',
+            period: '2017 - 2018',
+            description: 'Conception et développement de sites web modernes et responsives, alliant performance technique et esthétique.'
           }
         ]
       },
