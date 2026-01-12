@@ -4,6 +4,32 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// Animated code lines for background effect
+const CodeLine = ({ delay, width, top, left }: { delay: number; width: string; top: string; left: string }) => (
+  <motion.div
+    className={`absolute h-[2px] bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-transparent rounded-full ${width}`}
+    style={{ top, left }}
+    initial={{ scaleX: 0, opacity: 0 }}
+    animate={{ scaleX: 1, opacity: [0, 0.6, 0] }}
+    transition={{
+      duration: 2,
+      delay,
+      repeat: Infinity,
+      repeatDelay: 3,
+      ease: "easeOut",
+    }}
+  />
+);
+
+// Terminal cursor blink animation
+const TerminalCursor = () => (
+  <motion.span
+    className="inline-block w-[3px] h-[1.1em] bg-blue-500 ml-1 align-middle"
+    animate={{ opacity: [1, 0] }}
+    transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+  />
+);
+
 export default function Hero() {
   const { translations } = useLanguage();
 
@@ -20,6 +46,49 @@ export default function Hero() {
         />
       </div>
 
+      {/* Animated Code Lines Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <CodeLine delay={0} width="w-32 sm:w-48" top="15%" left="5%" />
+        <CodeLine delay={0.5} width="w-24 sm:w-36" top="25%" left="8%" />
+        <CodeLine delay={1} width="w-40 sm:w-56" top="35%" left="3%" />
+        <CodeLine delay={1.5} width="w-20 sm:w-32" top="65%" left="85%" />
+        <CodeLine delay={2} width="w-36 sm:w-48" top="75%" left="80%" />
+        <CodeLine delay={2.5} width="w-28 sm:w-40" top="85%" left="88%" />
+      </div>
+
+      {/* Floating Tech Symbols */}
+      <motion.div
+        className="absolute left-4 sm:left-8 lg:left-16 top-1/4 text-4xl sm:text-5xl md:text-6xl font-mono text-blue-500/20 dark:text-blue-400/10 select-none"
+        animate={{ y: [0, -10, 0], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {"</>"}
+      </motion.div>
+
+      <motion.div
+        className="absolute right-4 sm:right-8 lg:right-16 top-1/3 text-3xl sm:text-4xl md:text-5xl font-mono text-purple-500/20 dark:text-purple-400/10 select-none"
+        animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {"{ }"}
+      </motion.div>
+
+      <motion.div
+        className="absolute left-8 sm:left-16 lg:left-24 bottom-1/4 text-2xl sm:text-3xl md:text-4xl font-mono text-green-500/20 dark:text-green-400/10 select-none"
+        animate={{ y: [0, 8, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {"=>"}
+      </motion.div>
+
+      <motion.div
+        className="absolute right-8 sm:right-16 lg:right-24 bottom-1/3 text-3xl sm:text-4xl md:text-5xl font-mono text-cyan-500/20 dark:text-cyan-400/10 select-none"
+        animate={{ y: [0, -8, 0], opacity: [0.15, 0.3, 0.15] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {"[ ]"}
+      </motion.div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,28 +103,71 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 text-rendering-optimizeLegibility"
           >
             {translations.hero.title}
+            <TerminalCursor />
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-10 md:mb-12 leading-relaxed max-w-3xl mx-auto text-rendering-optimizeLegibility"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4 leading-relaxed max-w-3xl mx-auto text-rendering-optimizeLegibility"
           >
             {translations.hero.description}
           </motion.p>
+
+          {/* Tech Stack Tags */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-wrap justify-center gap-2 mb-6 max-w-2xl mx-auto"
+          >
+            {translations.hero.subtitle.split(', ').map((tech, index) => (
+              <motion.span
+                key={tech}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 + index * 0.05 }}
+                className="px-3 py-1 text-xs sm:text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-800"
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </motion.div>
+
+          {/* Agency Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="mb-8 sm:mb-10"
+          >
+            <span className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+              {translations.hero.agencyText}{' '}
+            </span>
+            <a
+              href="https://www.agencearcane.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 font-semibold text-sm sm:text-base hover:underline transition-all"
+            >
+              Agence Arcane
+            </a>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-8 sm:gap-10 justify-center max-w-sm sm:max-w-none mx-auto"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-sm sm:max-w-none mx-auto"
           >
             <a
-              href="#projects"
+              href="https://www.agencearcane.com/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-300 cursor-none overflow-hidden"
             >
-              <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 to-red-500 bg-[length:200%_100%] opacity-0 group-hover:opacity-100 animate-[gradient_3s_linear_infinite]"></span>
+              <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-[length:200%_100%] opacity-0 group-hover:opacity-100 animate-[gradient_3s_linear_infinite]"></span>
               <span className="absolute inset-[2px] z-10 rounded-lg bg-blue-600 group-hover:bg-blue-700 transition-colors duration-300"></span>
               <span className="relative z-20 inline-flex items-center whitespace-nowrap">
                 {translations.hero.viewWork}
@@ -70,7 +182,7 @@ export default function Hero() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
               </span>
@@ -83,72 +195,6 @@ export default function Hero() {
               {translations.hero.getInTouch}
             </a>
           </motion.div>
-        </motion.div>
-
-        {/* Floating Elements */}
-        <motion.div
-          className="absolute left-4 sm:left-8 lg:left-12 top-1/4 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32"
-          animate={{
-            y: [0, 15, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/globe.svg"
-            alt="Animated floating globe icon representing global reach"
-            width={128}
-            height={128}
-            className="w-full h-full opacity-20 dark:opacity-10"
-          />
-        </motion.div>
-
-        <motion.div
-          className="absolute right-4 sm:right-8 lg:right-12 bottom-1/4 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28"
-          animate={{
-            y: [0, -15, 0],
-            rotate: [0, -5, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/window.svg"
-            alt="Animated floating window icon representing digital interfaces"
-            width={112}
-            height={112}
-            className="w-full h-full opacity-20 dark:opacity-10"
-          />
-        </motion.div>
-
-        {/* Figma Logo */}
-        <motion.div
-          className="absolute top-[-50px] sm:top-[-60px] md:top-[-70px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24"
-          animate={{
-            y: [0, 12, 0],
-            rotate: [0, 6, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="/figma.svg"
-            alt="Animated floating Figma logo representing design tools"
-            width={96}
-            height={96}
-            className="w-full h-full opacity-75 dark:opacity-40"
-          />
         </motion.div>
       </div>
     </section>

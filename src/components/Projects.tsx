@@ -2,106 +2,82 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
-import Image from "next/image";
-import { useEffect, useState } from 'react';
-import { getProjects } from '../sanity/lib/project';
-import { urlForImage } from '../sanity/lib/image';
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import Link from 'next/link';
-
-interface Project {
-  _id: string;
-  title: string;
-  title_en: string;
-  title_fr: string;
-  description: string;
-  image: SanityImageSource;
-  tools: string[];
-}
 
 export default function Projects() {
-  const { translations, language } = useLanguage();
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projectsData = await getProjects();
-      if (projectsData) {
-        setProjects(projectsData);
-      }
-    };
-    fetchProjects();
-  }, []);
+  const { translations } = useLanguage();
 
   return (
     <section id="projects" className="py-40 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800" aria-labelledby="projects-title">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <h2 id="projects-title" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {translations.projects.title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
             {translations.projects.description}
           </p>
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project._id}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                duration: 1, 
-                delay: index * 0.1,
-                ease: [0.25, 0.1, 0.25, 0.5]
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative overflow-hidden rounded-3xl bg-white/10 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <Link
-                href={`/projects/${project._id}`}
-                className="block h-[400px] relative overflow-hidden"
-                aria-labelledby={`project-title-${project._id}`}
-                role="article"
-              >
-                <Image
-                  src={urlForImage(project.image).url()}
-                  alt={`Project preview for ${language === 'en' ? project.title_en : project.title_fr || project.title}`}
-                  fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-white/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 backdrop-blur-sm" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="space-y-4">
-                    <h3 id={`project-title-${project._id}`} className="text-xl font-bold text-white mix-blend-difference group-hover:mix-blend-difference transition-all duration-300 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
-                      {language === 'en' ? project.title_en : project.title_fr || project.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="px-3 py-1 text-xs font-medium text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-gray-200 line-clamp-2 group-hover:text-white/90 transition-colors duration-300 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
+          {/* Portfolio Redirect Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 p-1"
+          >
+            <div className="bg-white dark:bg-gray-900 rounded-[22px] p-8 sm:p-12">
+              <div className="flex flex-col items-center gap-6">
+                {/* Agency Logo/Icon */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg"
+                >
+                  <span className="text-3xl sm:text-4xl font-bold text-white">A</span>
+                </motion.div>
+
+                <div className="text-center">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                    Agence Arcane
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">
+                    {translations.projects.description}
+                  </p>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+
+                <a
+                  href="https://www.agencearcane.com/portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  <span>{translations.projects.viewProject}</span>
+                  <svg
+                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-20 h-20 bg-blue-500/10 rounded-full blur-2xl" />
+                <div className="absolute bottom-4 left-4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

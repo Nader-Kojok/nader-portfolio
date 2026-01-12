@@ -8,6 +8,8 @@ interface Translations {
   hero: {
     title: string;
     description: string;
+    subtitle: string;
+    agencyText: string;
     viewWork: string;
     getInTouch: string;
   };
@@ -106,8 +108,10 @@ const translations: Record<Language, Translations> = {
   en: {
     hero: {
       title: 'Hi, I\'m Nader Kojok',
-      description: "UX/UI Designer | I design digital experiences that users love and businesses trust.",
-      viewWork: 'View Work',
+      description: "CTO | Front-End Developer | Building immersive, responsive, and high-performance web and mobile applications.",
+      subtitle: "Flutter, React, Next.js, TypeScript, Tailwind CSS, Redux, Figma, CI/CD",
+      agencyText: "Founder of",
+      viewWork: 'View Portfolio',
       getInTouch: 'Get in Touch',
     },
     testimonials: {
@@ -141,7 +145,7 @@ const translations: Record<Language, Translations> = {
       skills: {
         title: 'Skills & Expertise',
         description: 'Technologies and tools I work with',
-        list: ['UI/UX Design', 'React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js', 'Figma', 'Adobe Creative Suite']
+        list: ['Flutter', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Figma', 'CI/CD', 'Node.js', 'Firebase']
       },
       journey: {
         title: 'Professional Journey',
@@ -175,8 +179,8 @@ const translations: Record<Language, Translations> = {
     },
     projects: {
       title: 'Featured Projects',
-      description: 'A collection of my recent work in UX/UI design and digital creation.',
-      viewProject: 'View Project',
+      description: 'Discover our latest web and mobile projects at Agence Arcane.',
+      viewProject: 'View Portfolio',
     },
     designProcess: {
       title: 'Design Process',
@@ -231,8 +235,10 @@ const translations: Record<Language, Translations> = {
   fr: {
     hero: {
       title: 'Bonjour, je suis Nader Kojok',
-      description: "UX/UI Designer | Je conçois des expériences digitales que les utilisateurs adorent et que les entreprises adoptent.",
-      viewWork: 'Voir les réalisations',
+      description: "CTO | Front-End Developer | Je crée des applications web et mobile immersives, responsives et haute performance.",
+      subtitle: "Flutter, React, Next.js, TypeScript, Tailwind CSS, Redux, Figma, CI/CD",
+      agencyText: "Fondateur de",
+      viewWork: 'Voir le Portfolio',
       getInTouch: 'Discutons ensemble',
     },
     testimonials: {
@@ -266,7 +272,7 @@ const translations: Record<Language, Translations> = {
       skills: {
         title: 'Compétences & Expertise',
         description: 'Technologies et outils avec lesquels je travaille',
-        list: ['Design UX/UI', 'React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Node.js', 'Figma', 'Suite Adobe Creative']
+        list: ['Flutter', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Figma', 'CI/CD', 'Node.js', 'Firebase']
       },
       journey: {
         title: 'Parcours Professionnel',
@@ -300,8 +306,8 @@ const translations: Record<Language, Translations> = {
     },
     projects: {
       title: 'Projets en Vedette',
-      description: 'Une collection de mes travaux récents en design UX/UI et création numérique.',
-      viewProject: 'Voir le Projet',
+      description: 'Découvrez nos dernières réalisations web et mobile chez Agence Arcane.',
+      viewProject: 'Voir le Portfolio',
     },
     designProcess: {
       title: 'Processus de Design',
