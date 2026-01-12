@@ -5,7 +5,7 @@ import { LanguageContext } from "@/contexts/LanguageContext";
 import Image from "next/image";
 import { urlForImage } from "../sanity/lib/image";
 import LightGallery from "lightgallery/react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
@@ -72,7 +72,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
     fetchMoreProjects();
   }, [project.title_en]); // Using title_en as dependency since it's unique
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -82,14 +82,13 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
