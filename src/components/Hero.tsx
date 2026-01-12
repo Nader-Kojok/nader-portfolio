@@ -140,18 +140,25 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="mb-8 sm:mb-10"
+            className="mb-8 sm:mb-10 flex flex-col items-center gap-3"
           >
             <span className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
-              {translations.hero.agencyText}{' '}
+              {translations.hero.agencyText}
             </span>
             <a
               href="https://www.agencearcane.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 font-semibold text-sm sm:text-base hover:underline transition-all"
+              className="group inline-flex items-center justify-center transition-all hover:scale-105 duration-300"
             >
-              Agence Arcane
+              <Image
+                src="/Logo + text Arcane White@1000x.png"
+                alt="Agence Arcane"
+                width={180}
+                height={50}
+                className="h-8 sm:h-10 w-auto dark:brightness-100 brightness-0"
+                priority
+              />
             </a>
           </motion.div>
 

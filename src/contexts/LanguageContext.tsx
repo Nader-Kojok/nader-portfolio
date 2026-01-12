@@ -53,7 +53,7 @@ interface Translations {
       company: string;
     }[];
   };
-  designProcess: {
+  developmentProcess: {
     title: string;
     description: string;
     steps: {
@@ -61,15 +61,15 @@ interface Translations {
         title: string;
         description: string;
       };
-      define: {
+      architecture: {
         title: string;
         description: string;
       };
-      design: {
+      development: {
         title: string;
         description: string;
       };
-      deliver: {
+      deployment: {
         title: string;
         description: string;
       };
@@ -110,7 +110,7 @@ const translations: Record<Language, Translations> = {
       title: 'Hi, I\'m Nader Kojok',
       description: "CTO | Front-End Developer | Building immersive, responsive, and high-performance web and mobile applications.",
       subtitle: "Flutter, React, Next.js, TypeScript, Tailwind CSS, Redux, Figma, CI/CD",
-      agencyText: "Founder of",
+      agencyText: "Cofounder of",
       viewWork: 'View Portfolio',
       getInTouch: 'Get in Touch',
     },
@@ -119,19 +119,19 @@ const translations: Record<Language, Translations> = {
       description: 'What our clients say about our work and collaboration',
       items: [
         {
-          quote: 'Working with Nader was rewarding. He grasped our vision from the start and transformed it into an effective solution.',
+          quote: 'Working with Nader was exceptional. He understood our technical requirements and delivered a robust, scalable solution that exceeded expectations.',
           author: 'Sokhna FALL',
           role: 'Founder',
           company: 'Bolide'
         },
         {
-          quote: 'Nader doesn’t just design prototypes—he lays the foundation for an app that makes sense.',
+          quote: 'Nader doesn\'t just write code - he architects solutions that are maintainable, performant, and future-proof.',
           author: 'Anwar SAFA',
           role: 'CEO',
           company: 'ArmaSoft'
         },
         {
-          quote: 'Nader brought a perfect balance of design and functionality to our e-commerce platform. The result? A smooth, intuitive shopping experience that our customers love.',
+          quote: 'Nader built our e-commerce platform with Flutter and Next.js. The result? Lightning-fast performance and a seamless user experience across all devices.',
           author: 'François PINOT',
           role: 'Marketing Director',
           company: 'Point-show'
@@ -152,22 +152,22 @@ const translations: Record<Language, Translations> = {
         description: 'My experience in the digital world',
         experiences: [
           {
-            role: 'Senior UX/UI Designer',
-            company: 'Digital Agency',
-            period: '2020 - Present',
-            description: 'Leading design initiatives and creating user-centered digital solutions.'
+            role: 'CTO & Founder',
+            company: 'Agence Arcane',
+            period: '2023 - Present',
+            description: 'Leading technical strategy and building high-performance web and mobile applications for clients.'
           },
           {
-            role: 'Frontend Developer',
+            role: 'Lead Front-End Developer',
             company: 'Tech Startup',
-            period: '2018 - 2020',
-            description: 'Developed responsive web applications using modern technologies.'
+            period: '2021 - 2023',
+            description: 'Architected and developed scalable React and Flutter applications with focus on performance.'
           },
           {
-            role: 'UI/UX Designer',
-            company: 'Creative Agency',
-            period: '2016 - 2018',
-            description: 'Created user-centered designs and conducted usability testing for various digital products.'
+            role: 'Full Stack Developer',
+            company: 'Digital Agency',
+            period: '2019 - 2021',
+            description: 'Built end-to-end web solutions using Next.js, Node.js, and modern development practices.'
           }
         ]
       },
@@ -182,31 +182,31 @@ const translations: Record<Language, Translations> = {
       description: 'Discover our latest web and mobile projects at Agence Arcane.',
       viewProject: 'View Portfolio',
     },
-    designProcess: {
-      title: 'Design Process',
-      description: 'My systematic approach to creating meaningful digital solutions',
+    developmentProcess: {
+      title: 'Development Process',
+      description: 'My systematic approach to building high-performance applications',
       steps: {
         discovery: {
           title: 'Discovery',
-          description: 'Understanding user needs, business goals, and market context through research and analysis.'
+          description: 'Analyzing requirements, defining technical stack, and planning architecture to meet business objectives.'
         },
-        define: {
-          title: 'Define',
-          description: 'Synthesizing research insights to identify key opportunities and define clear project objectives.'
+        architecture: {
+          title: 'Architecture',
+          description: 'Designing scalable system architecture, database schemas, and API structures for optimal performance.'
         },
-        design: {
-          title: 'Design',
-          description: 'Creating intuitive interfaces and engaging experiences through iterative design and prototyping.'
+        development: {
+          title: 'Development',
+          description: 'Building robust features with clean code, implementing best practices, and ensuring code quality through testing.'
         },
-        deliver: {
-          title: 'Deliver',
-          description: 'Implementing and launching solutions while ensuring quality and continuous improvement.'
+        deployment: {
+          title: 'Deployment',
+          description: 'Deploying with CI/CD pipelines, monitoring performance, and maintaining continuous improvement cycles.'
         }
       }
     },
     footer: {
       getInTouch: 'Get in Touch',
-      rights: '© 2025 Nader Kojok. All rights reserved.',
+      rights: ' 2025 Nader Kojok. All rights reserved.',
       quickLinks: {
         title: 'Quick Links',
         about: 'About',
@@ -237,7 +237,7 @@ const translations: Record<Language, Translations> = {
       title: 'Bonjour, je suis Nader Kojok',
       description: "CTO | Front-End Developer | Je crée des applications web et mobile immersives, responsives et haute performance.",
       subtitle: "Flutter, React, Next.js, TypeScript, Tailwind CSS, Redux, Figma, CI/CD",
-      agencyText: "Fondateur de",
+      agencyText: "Cofondateur de",
       viewWork: 'Voir le Portfolio',
       getInTouch: 'Discutons ensemble',
     },
@@ -246,19 +246,19 @@ const translations: Record<Language, Translations> = {
       description: 'Ce qu’ils retiennent de notre collaboration et des résultats obtenus.',
       items: [
         {
-          quote: 'Travailler avec Nader a été enrichissant. Il a compris notre vision dès le départ et l’a transformée en une solution efficace.',
+          quote: 'Travailler avec Nader a été exceptionnel. Il a compris nos besoins techniques et livré une solution robuste et évolutive qui a dépassé nos attentes.',
           author: 'Sokhna FALL',
           role: 'Fondatrice',
           company: 'Bolide'
         },
         {
-          quote: "Nader ne se contente pas de faire des prototypes, il pose les bases d’une application qui a du sens.",
+          quote: "Nader ne se contente pas d'écrire du code - il architecture des solutions maintenables, performantes et pérennes.",
           author: 'Anwar SAFA',
           role: 'CEO',
           company: 'ArmaSoft'
         },
         {
-          quote: 'Nader a su allier design et performance pour notre site e-commerce. Résultat : une expérience fluide et intuitive, très appréciée par nos clients.',
+          quote: 'Nader a construit notre plateforme e-commerce avec Flutter et Next.js. Résultat : des performances ultra-rapides et une expérience fluide sur tous les appareils.',
           author: 'François PINOT',
           role: 'Directeur Marketing',
           company: 'Point-show'
@@ -279,22 +279,22 @@ const translations: Record<Language, Translations> = {
         description: 'Mon expérience dans le monde numérique',
         experiences: [
           {
-            role: 'Designer UX/UI Senior',
-            company: 'Agence Numérique',
-            period: '2020 - Présent',
-            description: 'Direction d\'initiatives de design et création de solutions numériques centrées sur l\'utilisateur.'
+            role: 'CTO & Fondateur',
+            company: 'Agence Arcane',
+            period: '2023 - Présent',
+            description: 'Pilotage de la stratégie technique et développement d\'applications web et mobile performantes pour nos clients.'
           },
           {
-            role: 'Développeur Frontend',
+            role: 'Lead Développeur Front-End',
             company: 'Startup Tech',
-            period: '2018 - 2020',
-            description: 'Développement d\'applications web responsives utilisant des technologies modernes.'
+            period: '2021 - 2023',
+            description: 'Architecture et développement d\'applications React et Flutter évolutives avec focus sur la performance.'
           },
           {
-            role: 'Designer UX/UI',
-            company: 'Agence Créative',
-            period: '2016 - 2018',
-            description: 'Création de designs centrés sur l\'utilisateur et réalisation de tests d\'utilisabilité pour divers produits numériques.'
+            role: 'Développeur Full Stack',
+            company: 'Agence Digitale',
+            period: '2019 - 2021',
+            description: 'Construction de solutions web complètes avec Next.js, Node.js et les pratiques de développement modernes.'
           }
         ]
       },
@@ -309,31 +309,31 @@ const translations: Record<Language, Translations> = {
       description: 'Découvrez nos dernières réalisations web et mobile chez Agence Arcane.',
       viewProject: 'Voir le Portfolio',
     },
-    designProcess: {
-      title: 'Processus de Design',
-      description: 'Une méthode claire pour concevoir des solutions digitales qui font la différence.',
+    developmentProcess: {
+      title: 'Processus de Développement',
+      description: 'Une approche structurée pour créer des applications performantes et évolutives.',
       steps: {
         discovery: {
-          title: 'Recherche',
-          description: 'Observer, écouter, comprendre. Décortiquer les besoins des utilisateurs, saisir les enjeux business et analyser le marché pour partir sur des bases solides.'
+          title: 'Découverte',
+          description: 'Analyser les besoins, définir la stack technique et planifier l\'architecture pour atteindre les objectifs business.'
         },
-        define: {
-          title: 'Définition',
-          description: 'Faire le tri, synthétiser, structurer. Transformer les données brutes en décisions claires. Identifier ce qui a du potentiel et fixer une direction sans perdre de temps.'
+        architecture: {
+          title: 'Architecture',
+          description: 'Concevoir une architecture système évolutive, des schémas de base de données et des structures API optimales.'
         },
-        design: {
-          title: 'Design',
-          description: 'Expérimenter, ajuster, affiner. Construire des interfaces qui ont du sens, qui attirent et qui fonctionnent. Tester, itérer, jusqu’à ce que l’expérience soit fluide et naturelle.'
+        development: {
+          title: 'Développement',
+          description: 'Construire des fonctionnalités robustes avec du code propre, implémenter les bonnes pratiques et garantir la qualité par les tests.'
         },
-        deliver: {
-          title: 'Livraison',
-          description: 'Lancer, mesurer, améliorer. Déployer un produit qui tient la route, assurer son évolution et s’assurer qu’il crée de la valeur, aujourd’hui et demain.'
+        deployment: {
+          title: 'Déploiement',
+          description: 'Déployer avec des pipelines CI/CD, monitorer les performances et maintenir des cycles d\'amélioration continue.'
         }
       }
     },
     footer: {
       getInTouch: 'Discutons ensemble',
-      rights: '© 2025 Nader Kojok. Tous droits réservés.',
+      rights: ' 2025 Nader Kojok. Tous droits réservés.',
       quickLinks: {
         title: 'Liens Utiles',
         about: 'À Propos',

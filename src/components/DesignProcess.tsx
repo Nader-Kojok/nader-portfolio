@@ -12,23 +12,23 @@ export default function DesignProcess() {
   const steps = [
     {
       key: 'discovery',
-      title: translations?.designProcess?.steps?.discovery?.title || 'Discovery',
-      description: translations?.designProcess?.steps?.discovery?.description || 'Understanding project requirements and user needs'
+      title: translations?.developmentProcess?.steps?.discovery?.title || 'Discovery',
+      description: translations?.developmentProcess?.steps?.discovery?.description || 'Analyzing requirements and planning architecture'
     },
     {
-      key: 'define',
-      title: translations?.designProcess?.steps?.define?.title || 'Define',
-      description: translations?.designProcess?.steps?.define?.description || 'Defining the scope and strategy'
+      key: 'architecture',
+      title: translations?.developmentProcess?.steps?.architecture?.title || 'Architecture',
+      description: translations?.developmentProcess?.steps?.architecture?.description || 'Designing scalable system architecture'
     },
     {
-      key: 'design',
-      title: translations?.designProcess?.steps?.design?.title || 'Design',
-      description: translations?.designProcess?.steps?.design?.description || 'Creating the visual and interactive elements'
+      key: 'development',
+      title: translations?.developmentProcess?.steps?.development?.title || 'Development',
+      description: translations?.developmentProcess?.steps?.development?.description || 'Building robust features with clean code'
     },
     {
-      key: 'deliver',
-      title: translations?.designProcess?.steps?.deliver?.title || 'Deliver',
-      description: translations?.designProcess?.steps?.deliver?.description || 'Implementing and launching the solution'
+      key: 'deployment',
+      title: translations?.developmentProcess?.steps?.deployment?.title || 'Deployment',
+      description: translations?.developmentProcess?.steps?.deployment?.description || 'Deploying with CI/CD pipelines'
     }
   ];
 
@@ -46,10 +46,10 @@ export default function DesignProcess() {
           className="text-center mb-16"
         >
           <h2 id="design-process-title" className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            {translations?.designProcess?.title || 'Design Process'}
+            {translations?.developmentProcess?.title || 'Development Process'}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            {translations?.designProcess?.description || 'Our systematic approach to creating exceptional digital experiences'}
+            {translations?.developmentProcess?.description || 'Our systematic approach to building high-performance applications'}
           </p>
         </motion.div>
 
@@ -75,25 +75,25 @@ export default function DesignProcess() {
               role="article"
               aria-labelledby={`step-title-${step.key}`}
             >
-              <div className={`flex items-center justify-center w-12 h-12 rounded-full mb-4 ${step.key === 'discovery' ? 'bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30' : step.key === 'define' ? 'bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30' : step.key === 'design' ? 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30' : 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30'}`}>
+              <div className={`flex items-center justify-center w-12 h-12 rounded-full mb-4 ${step.key === 'discovery' ? 'bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30' : step.key === 'architecture' ? 'bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30' : step.key === 'development' ? 'bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30' : 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30'}`}>
                 {step.key === 'discovery' && (
                   <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 )}
-                {step.key === 'define' && (
+                {step.key === 'architecture' && (
                   <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 )}
-                {step.key === 'design' && (
+                {step.key === 'development' && (
                   <svg className="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                 )}
-                {step.key === 'deliver' && (
+                {step.key === 'deployment' && (
                   <svg className="w-6 h-6 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                   </svg>
                 )}
               </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
+import Image from "next/image";
 
 export default function Projects() {
   const { translations } = useLanguage();
@@ -31,19 +32,22 @@ export default function Projects() {
           >
             <div className="bg-white dark:bg-gray-900 rounded-[22px] p-8 sm:p-12">
               <div className="flex flex-col items-center gap-6">
-                {/* Agency Logo/Icon */}
+                {/* Agency Logo */}
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg"
+                  className="relative"
                 >
-                  <span className="text-3xl sm:text-4xl font-bold text-white">A</span>
+                  <Image
+                    src="/Logo + text Arcane White@1000x.png"
+                    alt="Agence Arcane"
+                    width={300}
+                    height={80}
+                    className="h-16 sm:h-20 w-auto dark:brightness-100 brightness-0"
+                  />
                 </motion.div>
 
                 <div className="text-center">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    Agence Arcane
-                  </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">
                     {translations.projects.description}
                   </p>
